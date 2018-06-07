@@ -5,11 +5,11 @@
     padding: 0;
     margin: 0;
     font-family: "Open Sans", sans-serif;
+    color: #595959;
 }
 
 h1 {
     font-weight: 300;
-    text-transform: uppercase;
 }
 
 p {
@@ -65,10 +65,45 @@ p {
     width: 100%;
 }
 
+.nav.disabled {
+    display: none;
+}
+
 .container_intro {
     margin: 12% 0 0 15%;
 }
 
-.social {
-    margin-top: 5%;
+.container_intro .linkedin {
+    position: absolute;
+    bottom: 7%;
+    display: flex;
+    align-items: center;
+}
+
+.container_intro .linkedin p {
+    font-size: .75em;
+    margin-left: 7px;
+}
+
+.container_intro .linkedin a {
+    transition: color ease-out .2s;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.container_intro .linkedin a::after {
+    content: '';
+    width: 0;
+    height: 1px;
+    background: #007bb5;
+    display: block;
+    transition: width ease-out .2s;
+}
+
+.container_intro .linkedin a:hover::after {
+    width: 100%;
+}
+
+.container_intro .linkedin a:hover {
+    color: #007bb5;
 }
