@@ -28,7 +28,6 @@ p {
     text-decoration: none;
     color: #ddd;
     font-weight: 300;
-    text-transform: uppercase;
     transition: color ease-out .2s;
 }
 
@@ -70,7 +69,7 @@ p {
 }
 
 .container_intro {
-    margin: 12% 0 0 15%;
+    margin: 12% 15% 0 15%;
 }
 
 .container_intro .linkedin {
@@ -106,4 +105,96 @@ p {
 
 .container_intro .linkedin a:hover {
     color: #007bb5;
+}
+
+/* CSS FOR SMALLER DEVICES */
+
+.mobile-nav {
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.menu-list {
+    display: none;
+    width: 33vw;
+    height: 100vh;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    font-weight: 300;
+    background: #fff;
+}
+
+.menu-list .menu-item {
+    padding-top: 8%;
+    padding-left: 8%;
+}
+
+.menu-list .menu-item:last-child {
+    padding-bottom: 8%;
+}
+
+.menu-list .menu-item.active::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #595959;
+}
+
+.mobile-nav span {
+    top: 50%;
+    left: 7px;
+    transition: background .3s;
+}
+
+.mobile-nav span,
+.mobile-nav span:before,
+.mobile-nav span:after {
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background-color: #595959;
+}
+
+.mobile-nav span:before {
+    content: '';
+    top: -7px;
+    transform-origin: 0% 50%;
+    transition: transform 0.3s;
+}
+
+.mobile-nav span:after {
+    content: '';
+    top: 7px;
+    transform-origin: 0% 50%;
+    transition: transform 0.3s;
+}
+
+.mobile-nav.visible span {
+    background-color: #fff;
+    left: 5px;
+}
+
+.mobile-nav.visible span:before {
+    transform: rotate(45deg) translateX(1px) translateY(-4px);
+}
+
+.mobile-nav.visible span:after {
+    transform: rotate(-45deg) translateX(1px) translateY(4px);
+}
+
+@media screen and (max-width: 786px) {
+    .container_intro {
+        font-size: 0.6em;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: block;
+    }
 }
