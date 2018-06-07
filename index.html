@@ -1,23 +1,101 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<div id="header">
+    <div id="black"></div>
+    <div id="background"></div>
+    <div class="col-md-8 col-md-push-2 text-center" id="indexcontent_header">
+        <h1>DENNIS DE ROOVER</h1>
+        <h4>Web enthousiast & founder at SR Technologies</h4>
+        <button class="btn-dennis">more about me</button>
+    </div>
 </div>
+
+<section id="index_1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="../images/dennis_avatar.png" class="img-circle" height="390px" width="auto"/>
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">ABOUT ME</h2>
+                <hr />
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure temporibus totam ut. Ab aliquam aliquid assumenda beatae blanditiis consequuntur, culpa cupiditate doloremque dolorum ducimus eaque fugiat, impedit inventore, ipsa ipsam laudantium neque nostrum numquam obcaecati quae quam qui quibusdam recusandae reprehenderit sapiente sunt suscipit veniam veritatis voluptates voluptatibus? A ab consectetur consequatur culpa cum debitis dignissimos doloremque dolores dolorum ducimus eaque eveniet excepturi explicabo fuga fugiat id iste itaque magnam maxime necessitatibus nostrum odit praesentium quam quas, quia quidem repellendus rerum, saepe similique voluptatem. Animi cum debitis, dolor dolore eveniet ex illum nesciunt nihil odio quasi, repellat repellendus reprehenderit soluta!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="index_2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>MAYBE WE CAN WORK TOGETHER?</h5>
+            </div>
+            <div class="col-md-4 text-right" id="btn-div">
+                <button class="btn-dennis">get in touch with me</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="index_3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2" id="portfolio_title">
+                <h4>PORTFOLIO</h4>
+            </div>
+            <div class="col-md-10" id="portfolio_grid">
+                <div class="row">
+                    <div class="col-md-4 text-center item" style="background-color: honeydew">
+                        <p>SR TECHNOLOGIES</p>
+                        <hr />
+                    </div>
+                    <div class="col-md-4 text-center item" style="background-color: lightblue">
+                        <p>ZEEN & MYER</p>
+                        <hr />
+                    </div>
+                    <div class="col-md-4 text-center item" style="background-color: lightcoral">
+                        <p>PIN DU NORD</p>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-center item" style="background-color: lightyellow">
+                        <p>EMELIE VAN HOUT FOTOGRAFIE</p>
+                        <hr />
+                    </div>
+                    <div class="col-md-4 text-center item" style="background-color: mistyrose">
+                        <p>IEDERS STEM TELT</p>
+                        <hr />
+                    </div>
+                    <div class="col-md-4 text-center item" style="background-color: mintcream">
+                        <p>AND MANY MORE ...</p>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="index_4">
+    <div class="container-fluid" id="footer">
+        <div class="text-center">
+            <h6>DESIGN BY DENNIS DE ROOVER</h6>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
