@@ -117,8 +117,8 @@ p {
 }
 
 .menu-list {
-    display: block;
-    width: 93vw;
+    display: none;
+    width: 100vw;
     height: 100vh;
     position: absolute;
     top: 30px;
@@ -126,6 +126,7 @@ p {
     font-weight: 300;
     background: #fff;
     text-align: center;
+    z-index: 1;
 }
 
 .menu-list .menu-item {
@@ -184,7 +185,8 @@ p {
 
 @media screen and (max-width: 786px) {
     .container_intro {
-        font-size: 0.6em;
+        margin: 4%;
+        font-size: 0.83em
     }
     
     .nav {
