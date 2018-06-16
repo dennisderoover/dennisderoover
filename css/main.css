@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -117,30 +117,27 @@ p {
 }
 
 .menu-list {
-    display: none;
-    width: 33vw;
+    display: block;
+    width: 93vw;
     height: 100vh;
     position: absolute;
     top: 30px;
     left: 0;
     font-weight: 300;
     background: #fff;
+    text-align: center;
 }
 
 .menu-list .menu-item {
-    padding-top: 8%;
-    padding-left: 8%;
+    margin-top: 20px;
 }
 
 .menu-list .menu-item:last-child {
-    padding-bottom: 8%;
+
 }
 
-.menu-list .menu-item.active::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background-color: #595959;
+.menu-list .menu-item.active {
+    font-weight: 600;
 }
 
 .mobile-nav span {
