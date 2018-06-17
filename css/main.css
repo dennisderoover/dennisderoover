@@ -70,15 +70,19 @@ p {
 }
 
 .container_intro {
-    margin: 12% 15% 0 15%;
     position: relative;
+    height: 450px;
+    overflow: hidden;
+    background: linear-gradient(#fff, #fafafa);
 }
 
 .container_intro img {
     position: absolute;
-    top: -150px;
-    left: 150px;
+    top: 10px;
+    left: 100px;
     z-index: 1;
+    transform: rotate(-5deg);
+    filter: grayscale(0.5);
 }
 
 .container_intro .circle {
@@ -86,7 +90,7 @@ p {
     height: 350px;
     width: 350px;
     border-radius: 50%;
-    top: -100px;
+    top: 50px;
     left: 110px;
     background-color: #eee;
 }
@@ -94,34 +98,35 @@ p {
 .container_intro .text-intro {
     position: absolute;
     left: 320px;
+    top: 125px;
     z-index: 2;
 }
 
-.container_intro .text-intro #linkedin-link {
-    margin-top: 50px;
+.container_intro .text-intro p {
+    margin-bottom: 100px;
 }
 
-.container_intro .text-intro #linkedin-link {
-    transition: color ease-out .2s;
+.container_intro .text-intro a {
     text-decoration: none;
     font-weight: 300;
+    transition: color .2s ease-out;
 }
 
-.container_intro .text-intro #linkedin-link::after {
+.container_intro .text-intro a:hover {
+    color: #0077b5;
+}
+
+.container_intro .text-intro a::after {
     content: '';
-    width: 0;
     height: 1px;
-    background: #007bb5;
+    width: 0;
+    background-color: #0077b5;
     display: block;
-    transition: width ease-out .2s;
+    transition: width .2s ease-out;
 }
 
-.container_intro .text-intro #linkedin-link:hover::after {
-    width: 100%;
-}
-
-.container_intro .text-intro #linkedin-link:hover {
-    color: #007bb5;
+.container_intro .text-intro a:hover::after {
+    width: 21.5%;
 }
 
 /* CSS FOR SMALLER DEVICES */
@@ -143,7 +148,7 @@ p {
     font-weight: 300;
     background: #fff;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
 }
 
 .menu-list .menu-item {
@@ -212,5 +217,15 @@ p {
     
     .mobile-nav {
         display: block;
+    }
+    
+    .container_intro img {
+        width: 110px;
+        height: auto;
+    }
+    
+    .container_intro .circle {
+        height: 200px;
+        width: 200px;
     }
 }
