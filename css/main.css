@@ -71,7 +71,7 @@ p {
 
 .container_intro {
     position: relative;
-    height: 450px;
+    height: calc(100vh - 43px - 88px);
     overflow: hidden;
     background: linear-gradient(#fff, #fafafa);
 }
@@ -127,6 +127,28 @@ p {
 
 .container_intro .text-intro a:hover::after {
     width: 21.5%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background: #777;
+}
+
+.social-list {
+    list-style: none;
+    padding: 30px;
+    font-weight: 300;
+}
+
+.social-list li {
+    display: inline;
+    margin: 30px;
+}
+
+.social-list li a {
+    color: #fafafa;
+    text-decoration: none;
 }
 
 /* CSS FOR SMALLER DEVICES */
