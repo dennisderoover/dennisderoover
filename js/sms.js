@@ -6,12 +6,14 @@ const client = require('twilio')(accountSid, authToken);
 
 var numbersToMessage = ["+32485836453", "+32485755249"]
 
-numbersToMessage.forEach(function(number){
-  var message = client.messages.create({
-    body: 'Eten staat klaar!',
-    from: '+32460201164',
-    to: number
-  })
-  .then(message =>  console.log(message.status))
-  .done();
-});
+function sendSms() {
+    numbersToMessage.forEach(function(number){
+        var message = client.messages.create({
+            body: 'Eten staat klaar!',
+            from: '+32460201164',
+            to: number
+        })
+        .then(message =>  console.log(message.status))
+        .done();
+    });
+}
