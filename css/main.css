@@ -1,253 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-    color: #595959;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  color: #f4f4f4;
 }
 
-h1 {
-    font-weight: 300;
-}
-
+h1,
 p {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-.nav {
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 1% 0;
-    display: flex;
-    justify-content: flex-end;
+.wrapper {
+  padding: 2rem;
+  background: #004e80;
+  text-align: center;
 }
 
-.nav a {
-    margin-right: 50px;
-    text-decoration: none;
-    color: #ddd;
-    font-weight: 300;
-    transition: color ease-out .2s;
+.container {
+  padding: 1rem;
+  height: calc(100vh - 107px);
+  background-color: rgb(0, 94, 202);
 }
 
-.nav a:hover {
-    color: black;
-}
-
-.nav a.active {
-    color: black;
-}
-
-.nav a:last-child {
-    margin: 0;
-}
-
-.nav a:after {
-    content: '';
-    width: 0;
-    height: 1px;
-    background: black;
-    display: block;
-    transition: width ease-out .2s;
-}
-
-.nav a.active:after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: black;
-    display: block;
-}
-
-.nav a:hover:after {
-    width: 100%;
-}
-
-.disabled {
-    display: none;
-}
-
-.container_intro {
-    position: relative;
-    height: calc(100vh - 43px - 88px);
-    overflow: hidden;
-    background: linear-gradient(#fff, #fafafa);
-}
-
-.container_intro img {
-    position: absolute;
-    top: 10px;
-    left: 100px;
-    z-index: 1;
-    transform: rotate(-5deg);
-    filter: grayscale(0.5);
-}
-
-.container_intro .circle {
-    position: absolute;
-    height: 350px;
-    width: 350px;
-    border-radius: 50%;
-    top: 50px;
-    left: 110px;
-    background-color: #eee;
-}
-
-.container_intro .text-intro {
-    position: absolute;
-    left: 320px;
-    top: 125px;
-    z-index: 2;
-}
-
-.container_intro .text-intro p {
-    margin-bottom: 100px;
-}
-
-.container_intro .text-intro a {
-    text-decoration: none;
-    font-weight: 300;
-    transition: color .2s ease-out;
-}
-
-.container_intro .text-intro a:hover {
-    color: #0077b5;
-}
-
-.container_intro .text-intro a::after {
-    content: '';
-    height: 1px;
-    width: 0;
-    background-color: #0077b5;
-    display: block;
-    transition: width .2s ease-out;
-}
-
-.container_intro .text-intro a:hover::after {
-    width: 21.5%;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    background: #777;
-}
-
-.social-list {
-    list-style: none;
-    padding: 30px;
-    font-weight: 300;
-}
-
-.social-list li {
-    display: inline;
-    margin: 30px;
-}
-
-.social-list li a {
-    color: #fafafa;
-    text-decoration: none;
-}
-
-/* CSS FOR SMALLER DEVICES */
-
-.mobile-nav {
-    display: none;
-    width: 30px;
-    height: 30px;
-    position: relative;
-}
-
-.menu-list {
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    font-weight: 300;
-    background: #fff;
-    text-align: center;
-    z-index: 10;
-}
-
-.menu-list .menu-item {
-    margin-top: 20px;
-}
-
-.menu-list .menu-item:last-child {
-
-}
-
-.menu-list .menu-item.active {
-    font-weight: 600;
-}
-
-.mobile-nav span {
-    top: 50%;
-    left: 7px;
-    transition: background .3s;
-}
-
-.mobile-nav span,
-.mobile-nav span:before,
-.mobile-nav span:after {
-    position: absolute;
-    width: 26px;
-    height: 2px;
-    background-color: #595959;
-}
-
-.mobile-nav span:before {
-    content: '';
-    top: -7px;
-    transform-origin: 0% 50%;
-    transition: transform 0.3s;
-}
-
-.mobile-nav span:after {
-    content: '';
-    top: 7px;
-    transform-origin: 0% 50%;
-    transition: transform 0.3s;
-}
-
-.mobile-nav.visible span {
-    background-color: #fff;
-    left: 5px;
-}
-
-.mobile-nav.visible span:before {
-    transform: rotate(45deg) translateX(1px) translateY(-4px);
-}
-
-.mobile-nav.visible span:after {
-    transform: rotate(-45deg) translateX(1px) translateY(4px);
-}
-
-@media screen and (max-width: 786px) {
-    .container_intro {
-        margin: 4%;
-        font-size: 0.83em
-    }
-    
-    .nav {
-        display: none;
-    }
-    
-    .mobile-nav {
-        display: block;
-    }
-    
-    .container_intro img {
-        width: 110px;
-        height: auto;
-    }
-    
-    .container_intro .circle {
-        height: 200px;
-        width: 200px;
-    }
+.container > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
 }
