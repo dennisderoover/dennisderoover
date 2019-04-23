@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Hammersmith+One");
 
 *,
 *::before,
@@ -6,30 +6,63 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
-  color: #f4f4f4;
+  font-family: "Hammersmith One", sans-serif;
+  background-color: #f4f4f4;
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   font-weight: 300;
+  background: -webkit-linear-gradient(45deg, #2c96dd 0%, #21b7a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.wrapper {
-  padding: 2rem;
-  background: #004e80;
-  text-align: center;
+h1 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 90px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+}
+
+.border-container {
+  background: linear-gradient(45deg, #2c96dd 0%, #21b7a1 100%);
+  position: absolute;
+  height: 85vh;
+  width: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
-  padding: 1rem;
-  height: calc(100vh - 107px);
-  background-color: rgb(0, 94, 202);
-}
-
-.container > p {
+  background-color: #f4f4f4;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(85vh - 10px);
+  width: calc(80vw - 10px);
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: linear-gradient(45deg, #2c96dd 0%, #21b7a1 100%);
 }
