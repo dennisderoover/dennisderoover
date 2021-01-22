@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Fill in your PlayerId to view your stats</h2>
+  <form [formGroup]="formGroup" (ngSubmit)="submit(formGroup.value)" class="playerid-form">
+    <mat-form-field class="playerid-form-field">
+      <mat-label>PlayerId</mat-label>
+      <input matInput name="playerId" formControlName="playerId" type="text">
+    </mat-form-field>
+    <button mat-stroked-button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="stats-container" *ngIf="showStats; else loading">
+  <h2>{{ playerProfile?.profile.id }}</h2>
+  <p>{{ playerStats?.stats.driver_point }}</p>
+  <p>{{ playerStats?.stats.manner_point }}</p>
+</div>
+
+<ng-template #loading>
+  <div class="container" *ngIf="isLoading">
+    <mat-icon class="icn-spinner">hourglass_full</mat-icon>
+  </div>
+</ng-template>
