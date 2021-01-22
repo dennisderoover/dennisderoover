@@ -1,1 +1,97 @@
-<p>chinees-poepen works!</p>
+<div class="start" *ngIf="!displayGameConfig && !displayPlayerInfoConfig && !gameStarted">
+  <button (click)="displayGameConfig = true">Nieuw Spel</button>
+</div>
+
+<!-- SELECT AMOUNT OF PLAYERS -->
+<div class="new-game-config" *ngIf="displayGameConfig">
+  <h1>Aantal Spelers</h1>
+  <div class="player-count-selector">
+    <button [disabled]="playerCount <= 2" (click)="playerCount = playerCount - 1">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <h2>{{ playerCount }}</h2>
+    <button [disabled]="playerCount >= 7" (click)="playerCount = playerCount + 1">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <button (click)="createGame()">Start Spel</button>
+</div>
+
+<!-- ADDING NAMES FOR SELECTED AMOUNT OF PLAYERS -->
+<div class="player-info-step" *ngIf="displayPlayerInfoConfig">
+  <h1>Naam Speler {{ playerIndex + 1 }}</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Spelernaam</mat-label>
+    <input #input matInput id="player-name-input" autofocus>
+  </mat-form-field>
+  <button *ngIf="playerIndex + 1 < playerCount" [disabled]="input.value.length === 0" (click)="addPlayerToGame({ name: input.value })">Volgende Speler
+  </button>
+  <button *ngIf="playerIndex + 1 == playerCount" [disabled]="input.value.length === 0" (click)="addPlayerToGame({ name: input.value })">Start Spel</button>
+</div>
+
+<div class="game" *ngIf="gameStarted">
+  <!-- DEALER SCREEN -->
+  <ng-container *ngIf="!displayPrediction && !displayEndOfRound && displayDealerScreen">
+    <h1>Speler {{ game.currentDealer.name }}</h1>
+    <h2>Deel {{ game.amountOfCardsForRound === 1 ? game.amountOfCardsForRound + ' kaart' : game.amountOfCardsForRound + ' kaarten' }} per speler</h2>
+    <button (click)="goToPredictions()">Naar Voorspellingen</button>
+  </ng-container>
+
+  <!-- PREDICTION SCREEN -->
+  <ng-container *ngIf="displayPrediction && !displayEndOfRound && !displayDealerScreen">
+    <h1>Voorspelling Ronde {{ game.currentRound }}</h1>
+    <h2 class="bottom-margin">{{ game.players[playerIndex].name }}</h2>
+    <div class="player-count-selector">
+      <button [disabled]="prediction == 0" (click)="prediction = prediction - 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <h2>{{ prediction }}</h2>
+      <button [disabled]="prediction == game.currentRound" (click)="prediction = prediction + 1">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <p *ngIf="impossiblePrediction || impossiblePrediction === 0" class="hint">Voorspelling mag niet {{ impossiblePrediction }} zijn!</p>
+    <button [disabled]="prediction === impossiblePrediction" (click)="addPredictionToPlayer(prediction)">{{ playersWithPredictionCounter + 1 == game.playerCount ? 'Start Ronde ' + game.currentRound : 'Volgende Speler' }}</button>
+  </ng-container>
+
+  <!-- ONGOING ROUND & ROUND OVERVIEW SCREEN -->
+  <ng-container *ngIf="!displayPrediction && !displayEndOfRound  && !displayDealerScreen">
+    <h1 *ngIf="!displayEndGame">{{ displayRoundOverview ? 'Overzicht Ronde ' + game.currentRound : 'Ronde ' + game.currentRound }}</h1>
+    <h1 *ngIf="displayEndGame">Speloverzicht</h1>
+    <ng-container *ngFor="let player of game.players; let i = index;">
+      <div class="player-row">
+        <h2>{{ displayEndGame ? i + 1 + '. ' + player.name : player.name }}</h2>
+        <div class="right">
+          <div class="predictions" *ngIf="!displayRoundOverview">
+            <h3>Slagen</h3>
+            <p>{{ player.prediction }}</p>
+          </div>
+          <div class="score" *ngIf="displayRoundOverview">
+            <h3>Score</h3>
+            <p>{{ displayEndGame ? player.totalScore : player.scoreForRound }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <button *ngIf="!displayRoundOverview" class="round-button" (click)="endRound()">Beëindig Ronde {{ game.currentRound }}</button>
+    <button *ngIf="displayRoundOverview && game.currentRound !== 13" class="round-button" (click)="startNextRound()">Start Ronde {{ game.currentRound + 1 }}</button>
+    <button *ngIf="!displayEndGame && displayRoundOverview && game.currentRound === 13" class="round-button" (click)="endGame()">Naar de winnaars</button>
+    <button *ngIf="displayEndGame" class="round-button" (click)="newGame()">Nieuw Spel</button>
+  </ng-container>
+
+  <!-- END OF ROUND SCREEN -->
+  <ng-container *ngIf="!displayPrediction && displayEndOfRound  && !displayDealerScreen">
+    <h1>Puntentelling Ronde {{ game.currentRound }}</h1>
+    <h2 class="bottom-margin">Behaalde slagen voor {{ game.players[playerIndex].name }}:</h2>
+    <div class="player-count-selector">
+      <button [disabled]="actual == 0" (click)="actual = actual - 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <h2>{{ actual }}</h2>
+      <button [disabled]="actual == game.amountOfCardsForRound" (click)="actual = actual + 1">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <button (click)="addScoreForPlayer(playerIndex, actual)">{{ playerIndex + 1 == game.playerCount ? 'Start Ronde ' + game.currentRound : 'Volgende Speler' }}</button>
+  </ng-container>
+</div>
