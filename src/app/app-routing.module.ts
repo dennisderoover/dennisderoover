@@ -5,7 +5,7 @@ import { ChineesPoepenComponent } from "./games/chinees-poepen/chinees-poepen.co
 
 const routes: Routes = [
   { path: 'gt-sport', component: GtSportComponent },
-  { path: 'games/chinees-poepen', component: ChineesPoepenComponent },
+  { path: 'chinees-poepen', component: ChineesPoepenComponent },
 ];
 
 @NgModule({
