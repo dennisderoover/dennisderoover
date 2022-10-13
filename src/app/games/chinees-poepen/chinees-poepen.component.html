@@ -22,7 +22,7 @@
   <h1>Naam Speler {{ playerIndex + 1 }}</h1>
   <mat-form-field appearance="outline">
     <mat-label>Spelernaam</mat-label>
-    <input #input matInput id="player-name-input" autofocus>
+    <input #input matInput id="player-name-input" autofocus autocapitalize="words">
   </mat-form-field>
   <button *ngIf="playerIndex + 1 < playerCount" [disabled]="input.value.length === 0" (click)="addPlayerToGame({ name: input.value })">Volgende Speler
   </button>

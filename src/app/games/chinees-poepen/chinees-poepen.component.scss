@@ -33,6 +33,7 @@ h1 {
   font-family: 'Rubik', sans-serif;
 
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   padding: 2rem 0;
 
   background-color: $white;
@@ -44,6 +45,8 @@ h1 {
   justify-content: center;
 
   text-align: center;
+
+  overflow-y: hidden;
 }
 
 .new-game-config, .game {
